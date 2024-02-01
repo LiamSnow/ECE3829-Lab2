@@ -12,10 +12,16 @@ module SevenSegmentDisplay(
     wire [3:0] currentDigitValue = digitValues[currentDigit];
 
     reg [24:0] clkDivider = 0;
-    always_ff @(posedge CLK25) begin
-        clkDivider <= clkDivider + 1;
-        if (clkDivider[24]) begin
-            currentDigit <= currentDigit + 1;
+    always_ff @(posedge CLK25 or negedge reset_n) begin
+        if (reset_n) begin
+            clkDivider <= 0;
+            currentDigit <= 0;
+        end
+        else begin
+            clkDivider <= clkDivider + 1;
+            if (clkDivider[24]) begin
+                currentDigit <= currentDigit + 1;
+            end
         end
     end
     
