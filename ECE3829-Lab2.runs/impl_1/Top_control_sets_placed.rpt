@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb  1 16:43:46 2024
+| Date         : Thu Feb  1 17:04:38 2024
 | Host         : SNOW-XPS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
 | Design       : Top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    14 |
-|    Minimum number of control sets                        |    14 |
+| Total control sets                                       |    16 |
+|    Minimum number of control sets                        |    16 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    92 |
+| Unused register locations in slices containing registers |    95 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    14 |
+| Total control sets |    16 |
 | >= 0 to < 4        |    11 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     2 |
-| >= 12 to < 14      |     0 |
+| >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     2 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              10 |            5 |
-| No           | No                    | Yes                    |              87 |           35 |
+| No           | No                    | No                     |              12 |            3 |
+| No           | No                    | Yes                    |              91 |           29 |
 | No           | Yes                   | No                     |               3 |            3 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              16 |            9 |
+| Yes          | No                    | Yes                    |              47 |           19 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -77,16 +77,18 @@ Table of Contents
 |  Switch1Debouncer/out_reg_LDC_i_1__0_n_0 |                                   | Switch1Debouncer/out_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
 |  Switch2Debouncer/out_reg_LDC_i_1__1_n_0 |                                   | Switch2Debouncer/out_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
 |  clk_wiz_0/inst/clk_out1                 |                                   | ButtonDebouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | ButtonDebouncer/out_reg_LDC_i_1_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | Switch1Debouncer/out_reg_LDC_i_1__0_n_0 |                1 |              1 |         1.00 |
 |  clk_wiz_0/inst/clk_out1                 |                                   | Switch1Debouncer/out_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | Switch2Debouncer/out_reg_LDC_i_1__1_n_0 |                1 |              1 |         1.00 |
 |  clk_wiz_0/inst/clk_out1                 |                                   | Switch2Debouncer/out_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 | ButtonDebouncer/out_P_i_1__1_n_0  | ButtonDebouncer/out_reg_LDC_i_1_n_0     |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 | Switch1Debouncer/out_P_i_1_n_0    | Switch1Debouncer/out_reg_LDC_i_1__0_n_0 |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 | Switch1Debouncer/state_i_1_n_0    | VGASync/bbstub_locked                   |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 | Switch2Debouncer/out_P_i_1__0_n_0 | Switch2Debouncer/out_reg_LDC_i_1__1_n_0 |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 | Switch2Debouncer/state_i_1__0_n_0 | VGASync/bbstub_locked                   |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                 |                                   |                                         |                5 |             10 |         2.00 |
-|  clk_wiz_0/inst/clk_out1                 | VGASync/y                         | VGASync/bbstub_locked                   |                4 |             11 |         2.75 |
-|  clk_wiz_0/inst/clk_out1                 |                                   | VGASync/bbstub_locked                   |               32 |             84 |         2.62 |
+|  clk_wiz_0/inst/clk_out1                 | Switch1Debouncer/state_i_1_n_0    | Display/bbstub_locked                   |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Switch2Debouncer/state_i_1__0_n_0 | Display/bbstub_locked                   |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Display/blockY[9]_i_1_n_0         | Display/bbstub_locked                   |                4 |             10 |         2.50 |
+|  clk_wiz_0/inst/clk_out1                 | VGASync/y                         | Display/bbstub_locked                   |                5 |             11 |         2.20 |
+|  clk_wiz_0/inst/clk_out1                 |                                   |                                         |                3 |             12 |         4.00 |
+|  clk_wiz_0/inst/clk_out1                 | ButtonDebouncer/leds_OBUF[0]      | Display/bbstub_locked                   |                8 |             24 |         3.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | Display/bbstub_locked                   |               23 |             85 |         3.70 |
 +------------------------------------------+-----------------------------------+-----------------------------------------+------------------+----------------+--------------+
 
 

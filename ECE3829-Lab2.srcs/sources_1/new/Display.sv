@@ -3,10 +3,12 @@
 module Display(
     input wire CLK25, reset_n,
     input wire [1:0] state,
-    input wire blockEnabled,
+    input wire blockEnabled, blockBoost,
     output reg [11:0] vgaColor,
+    input wire vgaBlank,
     input wire [10:0] vgaX, vgaY
-);
+    );
+
     //VGA Params
     localparam [9:0] VGA_WIDTH = 640;
     localparam [9:0] VGA_HEIGHT = 480;
@@ -36,25 +38,31 @@ module Display(
     reg blockMovingDown = 0;
 
     localparam [23:0] BLOCK_SLOW_CLOCK_END = 12_500_000-1; //25MHz -> 2Hz
+    localparam [23:0] BLOCK_FAST_CLOCK_END = 1_562_500-1; //25MHz -> 16Hz
     reg [23:0] blockClockCounter = 0;
 
     //VGA Color Logic
     always_ff @(posedge CLK25) begin
-        if (blockEnabled) begin
-            if (vgaX > BLOCK_LEFT_X &&
-                vgaX < BLOCK_RIGHT_X &&
-                vgaY >= blockY &&
-                vgaY <= blockY + BLOCK_SIZE) begin
-                vgaColor <= RED;
-            end
-            else vgaColor <= BLUE;
+        if (vgaBlank) begin
+            vgaColor <= BLACK;
         end
-        else case (state)
-            YELLOW_SCREEN: vgaColor <= YELLOW;
-            RED_WHITE_BARS: vgaColor <= (~vgaX[4]) ? RED : WHITE;
-            GREEN_BLOCK: vgaColor <= (vgaY < 128 && vgaX > (VGA_WIDTH - 128)) ? GREEN : BLACK; 
-            BLUE_STRIPE: vgaColor <= (vgaY > (VGA_HEIGHT - 32)) ? BLUE : BLACK;
-        endcase
+        else begin
+            if (blockEnabled) begin
+                if (vgaX > BLOCK_LEFT_X &&
+                    vgaX < BLOCK_RIGHT_X &&
+                    vgaY >= blockY &&
+                    vgaY <= blockY + BLOCK_SIZE) begin
+                    vgaColor <= RED;
+                end
+                else vgaColor <= BLUE;
+            end
+            else case (state)
+                YELLOW_SCREEN: vgaColor <= YELLOW;
+                RED_WHITE_BARS: vgaColor <= (~vgaX[4]) ? RED : WHITE;
+                GREEN_BLOCK: vgaColor <= (vgaY < 128 && vgaX > (VGA_WIDTH - 128)) ? GREEN : BLACK; 
+                BLUE_STRIPE: vgaColor <= (vgaY > (VGA_HEIGHT - 32)) ? BLUE : BLACK;
+            endcase
+        end
     end
 
     //Block Logic
@@ -65,8 +73,7 @@ module Display(
              blockClockCounter <= 0;
         end
         else if (blockEnabled) begin
-            //2Hz Slow Clock
-            if (blockClockCounter == BLOCK_SLOW_CLOCK_END) begin
+            if (blockClockCounter == (blockBoost ? BLOCK_FAST_CLOCK_END : BLOCK_SLOW_CLOCK_END)) begin
                 blockClockCounter <= 0;
 
                 //Move block in its direction
