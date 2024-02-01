@@ -6,7 +6,7 @@ module Debouncer(
     input wire in,
     output reg out
 );
-    parameter DEBOUNCE_INTERVAL = 250000; //10ms
+    parameter DEBOUNCE_INTERVAL = 250_000; //10ms
     reg [19:0] counter;
 
     reg state = 0;
