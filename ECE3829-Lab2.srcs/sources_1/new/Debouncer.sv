@@ -6,7 +6,7 @@ module Debouncer(
     input wire in,
     output reg out
 );
-    parameter DEBOUNCE_INTERVAL = 100000; //# clocks to wait for debounce
+    parameter DEBOUNCE_INTERVAL = 250000; //10ms
     reg [19:0] counter;
 
     reg state = 0;
@@ -15,24 +15,22 @@ module Debouncer(
         if (!reset_n) begin
             counter <= 0;
             state <= 0;
-            out <= 0;
+            out <= in;
         end
-        
         else begin
-            //state is the same
+            // State is the same
             if (in == state) begin
-                //almost stable
+                // Almost stable
                 if (counter < DEBOUNCE_INTERVAL) begin
                     counter <= counter + 1;
                 end
-                
-                //is stable
+                // Is stable
                 else begin
                     out <= state;
+                    counter <= 0; // Reset counter after reaching terminal count
                 end
             end
-            
-            //state changed
+            // State changed
             else begin
                 counter <= 0;
                 state <= in;

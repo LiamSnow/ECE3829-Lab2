@@ -2,9 +2,8 @@
 
 module Top(
     input wire CLK100,
-    input wire [15:0] switches,
-    input wire buttonLeft, buttonUp, buttonRight, buttonDown,
-    output wire [15:0] leds,
+    input wire buttonUp, buttonRight, buttonDown, buttonLeft, buttonCenter,
+    input wire [1:0] switches,
     output wire [6:0] sevenSegmentSegments,
     output wire sevenSegmentDecimal,
     output wire [3:0] sevenSegmentAnodes,
@@ -22,7 +21,6 @@ module Top(
     );
 
     wire [3:0] [3:0] digitValues = '{4'd9, 4'd8, 4'd8, 4'd7};
-
     SevenSegmentDisplay SevenSegmentDisplay(
         .CLK25(CLK25),
         .reset_n(reset_n),
@@ -41,14 +39,23 @@ module Top(
         .x(vgaX),
         .y(vgaY)
     );
+
+    wire [1:0] debouncedSwitches;
+    Debouncer Switch1Debouncer(CLK25, reset_n, switches[0], debouncedSwitches[0]);
+    Debouncer Switch2Debouncer(CLK25, reset_n, switches[1], debouncedSwitches[1]);
+
+    wire combinedButton = buttonUp & buttonRight & buttonDown & buttonLeft & buttonCenter;
+    wire debouncedButton;
+    Debouncer ButtonDebouncer(CLK25, reset_n, combinedButton, debouncedButton);
+
     Display Display(
         .CLK25(CLK25),
         .reset_n(reset_n),
-        .red(vgaRed),
-        .blue(vgaBlue),
-        .green(vgaGreen),
-        .x(vgaX),
-        .y(vgaY)
+        .state(debouncedSwitches),
+        .stateOverride(debouncedButton),
+        .vgaColor({vgaRed, vgaGreen, vgaBlue}),
+        .vgaX(vgaX),
+        .vgaY(vgaY)
     );
 
 endmodule
