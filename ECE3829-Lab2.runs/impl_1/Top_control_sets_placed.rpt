@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Jan 25 16:13:06 2024
+| Date         : Thu Feb  1 16:43:46 2024
 | Host         : SNOW-XPS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
 | Design       : Top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     1 |
-|    Minimum number of control sets                        |     1 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     5 |
+| Unused register locations in slices containing registers |    92 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,12 +39,12 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     1 |
-| >= 0 to < 4        |     0 |
+| Total control sets |    14 |
+| >= 0 to < 4        |    11 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     0 |
+| >= 10 to < 12      |     2 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     1 |
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              27 |            8 |
-| No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |               0 |            0 |
+| No           | No                    | No                     |              10 |            5 |
+| No           | No                    | Yes                    |              87 |           35 |
+| No           | Yes                   | No                     |               3 |            3 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | No                    | Yes                    |              16 |            9 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,10 +70,23 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+--------------------------+---------------+------------------+------------------+----------------+--------------+
-|       Clock Signal       | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+--------------------------+---------------+------------------+------------------+----------------+--------------+
-|  clk_wiz_0/inst/clk_out1 |               |                  |                8 |             27 |         3.38 |
-+--------------------------+---------------+------------------+------------------+----------------+--------------+
++------------------------------------------+-----------------------------------+-----------------------------------------+------------------+----------------+--------------+
+|               Clock Signal               |           Enable Signal           |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------------+-----------------------------------+-----------------------------------------+------------------+----------------+--------------+
+|  ButtonDebouncer/out_reg_LDC_i_1_n_0     |                                   | ButtonDebouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
+|  Switch1Debouncer/out_reg_LDC_i_1__0_n_0 |                                   | Switch1Debouncer/out_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
+|  Switch2Debouncer/out_reg_LDC_i_1__1_n_0 |                                   | Switch2Debouncer/out_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | ButtonDebouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | Switch1Debouncer/out_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | Switch2Debouncer/out_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | ButtonDebouncer/out_P_i_1__1_n_0  | ButtonDebouncer/out_reg_LDC_i_1_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Switch1Debouncer/out_P_i_1_n_0    | Switch1Debouncer/out_reg_LDC_i_1__0_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Switch1Debouncer/state_i_1_n_0    | VGASync/bbstub_locked                   |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Switch2Debouncer/out_P_i_1__0_n_0 | Switch2Debouncer/out_reg_LDC_i_1__1_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 | Switch2Debouncer/state_i_1__0_n_0 | VGASync/bbstub_locked                   |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                 |                                   |                                         |                5 |             10 |         2.00 |
+|  clk_wiz_0/inst/clk_out1                 | VGASync/y                         | VGASync/bbstub_locked                   |                4 |             11 |         2.75 |
+|  clk_wiz_0/inst/clk_out1                 |                                   | VGASync/bbstub_locked                   |               32 |             84 |         2.62 |
++------------------------------------------+-----------------------------------+-----------------------------------------+------------------+----------------+--------------+
 
 

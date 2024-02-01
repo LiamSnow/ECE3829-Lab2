@@ -5,9 +5,8 @@ module Display(
     input wire [1:0] state,
     input wire blockEnabled,
     output reg [11:0] vgaColor,
-    input wire [9:0] vgaX, vgaY
+    input wire [10:0] vgaX, vgaY
 );
-
     //VGA Params
     localparam [9:0] VGA_WIDTH = 640;
     localparam [9:0] VGA_HEIGHT = 480;
@@ -36,23 +35,12 @@ module Display(
     reg [9:0] blockY = 0;
     reg blockMovingDown = 0;
 
-    localparam [22:0] BLOCK_SLOW_CLOCK_END = 6_250_000-1; //25MHz -> 2Hz
-    reg [22:0] blockClockCounter = 0;
-    reg blockClock = 0; //2Hz
+    localparam [23:0] BLOCK_SLOW_CLOCK_END = 12_500_000-1; //25MHz -> 2Hz
+    reg [23:0] blockClockCounter = 0;
 
-    //Sync Logic
-    always_ff @(posedge CLK25 or negedge reset_n) begin
-        if (~reset_n) begin
-             vgaColor <= BLACK;
-             blockY <= 0;
-             blockMovingDown <= 0;
-             blockClockCounter <= 0;
-             blockClock <= 0;
-        end
-
-        //Block
-        else if (blockEnabled) begin
-            //Draw Block
+    //VGA Color Logic
+    always_ff @(posedge CLK25) begin
+        if (blockEnabled) begin
             if (vgaX > BLOCK_LEFT_X &&
                 vgaX < BLOCK_RIGHT_X &&
                 vgaY >= blockY &&
@@ -60,32 +48,39 @@ module Display(
                 vgaColor <= RED;
             end
             else vgaColor <= BLUE;
-
-            //Block Clock
-            if (blockClockCounter == BLOCK_SLOW_CLOCK_END) begin
-                blockClock <= ~blockClock;
-                blockClockCounter <= 0;
-            end else blockClockCounter <= blockClockCounter + 1;
-
-            //Block Movement (2Hz)
-            if (blockClock) begin
-                if (blockMovingDown ?
-                    (blockY < BLOCK_BOTTOM_Y) :
-                    (blockY > 1)) begin
-                    blockY <= blockMovingDown ? (blockY + 1) : (blockY - 1);
-                end
-                else begin
-                    blockMovingDown <= ~blockMovingDown;
-                end
-            end
         end
-
-        //Normal States
         else case (state)
             YELLOW_SCREEN: vgaColor <= YELLOW;
             RED_WHITE_BARS: vgaColor <= (~vgaX[4]) ? RED : WHITE;
             GREEN_BLOCK: vgaColor <= (vgaY < 128 && vgaX > (VGA_WIDTH - 128)) ? GREEN : BLACK; 
             BLUE_STRIPE: vgaColor <= (vgaY > (VGA_HEIGHT - 32)) ? BLUE : BLACK;
         endcase
+    end
+
+    //Block Logic
+    always_ff @(posedge CLK25 or negedge reset_n) begin
+        if (~reset_n) begin
+             blockY <= 0;
+             blockMovingDown <= 0;
+             blockClockCounter <= 0;
+        end
+        else if (blockEnabled) begin
+            //2Hz Slow Clock
+            if (blockClockCounter == BLOCK_SLOW_CLOCK_END) begin
+                blockClockCounter <= 0;
+
+                //Move block in its direction
+                if (blockMovingDown ?
+                    (blockY < BLOCK_BOTTOM_Y) :
+                    (blockY > 1)) begin
+                    blockY <= blockMovingDown ? (blockY + 1) : (blockY - 1);
+                end
+
+                //Swap block direction
+                else begin
+                    blockMovingDown <= ~blockMovingDown;
+                end
+            end else blockClockCounter <= blockClockCounter + 1;
+        end
     end
 endmodule

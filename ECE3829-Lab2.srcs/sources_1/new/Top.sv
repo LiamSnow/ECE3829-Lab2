@@ -4,6 +4,7 @@ module Top(
     input wire CLK100,
     input wire buttonUp, buttonRight, buttonDown, buttonLeft, buttonCenter,
     input wire [1:0] switches,
+    output wire [15:0] leds,
     output wire [6:0] sevenSegmentSegments,
     output wire sevenSegmentDecimal,
     output wire [3:0] sevenSegmentAnodes,
@@ -11,9 +12,7 @@ module Top(
     output wire vgaHsync, vgaVsync
     );
 
-    wire reset_n;
-
-    wire CLK25;
+    wire CLK25, reset_n;
     clk_wiz_0 clk_wiz_0(
         .clk_in1(CLK100),
         .clk_out1(CLK25),
@@ -30,7 +29,7 @@ module Top(
         .anodes(sevenSegmentAnodes)
     );
 
-    reg [9:0] vgaX, vgaY;
+    reg [10:0] vgaX, vgaY;
     VGASync VGASync(
         .CLK25(CLK25),
         .reset_n(reset_n),
@@ -43,10 +42,12 @@ module Top(
     wire [1:0] debouncedSwitches;
     Debouncer Switch1Debouncer(CLK25, reset_n, switches[0], debouncedSwitches[0]);
     Debouncer Switch2Debouncer(CLK25, reset_n, switches[1], debouncedSwitches[1]);
+    assign leds[1:0] = debouncedSwitches;
 
-    wire combinedButton = buttonUp & buttonRight & buttonDown & buttonLeft & buttonCenter;
+    wire combinedButton = buttonUp | buttonRight | buttonDown | buttonLeft | buttonCenter;
     wire debouncedButton;
     Debouncer ButtonDebouncer(CLK25, reset_n, combinedButton, debouncedButton);
+    assign leds[2] = debouncedButton;
 
     Display Display(
         .CLK25(CLK25),
@@ -57,5 +58,4 @@ module Top(
         .vgaX(vgaX),
         .vgaY(vgaY)
     );
-
 endmodule

@@ -11,17 +11,19 @@ module SevenSegmentDisplay(
     reg [1:0] currentDigit = 0;
     wire [3:0] currentDigitValue = digitValues[currentDigit];
 
-    reg [24:0] clkDivider = 0;
+    reg [15:0] slowClockCounter = 0;
+
     always_ff @(posedge CLK25 or negedge reset_n) begin
-        if (reset_n) begin
-            clkDivider <= 0;
+        if (~reset_n) begin
+            slowClockCounter <= 0;
             currentDigit <= 0;
         end
         else begin
-            clkDivider <= clkDivider + 1;
-            if (clkDivider[24]) begin
+            if (slowClockCounter[15]) begin
+                slowClockCounter <= 0;
                 currentDigit <= currentDigit + 1;
             end
+            else slowClockCounter <= slowClockCounter + 1;
         end
     end
     
