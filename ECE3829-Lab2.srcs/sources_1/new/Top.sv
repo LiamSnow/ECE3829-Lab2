@@ -30,7 +30,7 @@ module Top(
         .anodes(sevenSegmentAnodes)
     );
 
-    reg [10:0] vgaX, vgaY;
+    reg [9:0] vgaX, vgaY;
     VGASync VGASync(
         .CLK25(CLK25),
         .reset_n(reset_n),
@@ -52,7 +52,7 @@ module Top(
         .CLK25(CLK25),
         .reset_n(reset_n),
         .state(debouncedSwitches),
-        .stateOverride(debouncedButton),
+        .blockEnabled(debouncedButton),
         .vgaColor({vgaRed, vgaGreen, vgaBlue}),
         .vgaX(vgaX),
         .vgaY(vgaY)
