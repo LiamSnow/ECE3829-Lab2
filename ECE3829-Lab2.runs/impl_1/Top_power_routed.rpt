@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Thu Feb  1 17:05:12 2024
+| Date             : Thu Feb  1 21:34:26 2024
 | Host             : SNOW-XPS running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_power_routed.rpt -pb Top_power_summary_routed.pb -rpx Top_power_routed.rpx
 | Design           : Top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.190        |
+| Total On-Chip Power (W)  | 0.189        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.118        |
+| Dynamic (W)              | 0.117        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.1         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      438 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      161 |     20800 |            0.77 |
-|   CARRY4       |    <0.001 |       32 |      8150 |            0.39 |
-|   Register     |    <0.001 |      153 |     41600 |            0.37 |
-|   Others       |     0.000 |       18 |       --- |             --- |
-| Signals        |    <0.001 |      346 |       --- |             --- |
+| Slice Logic    |    <0.001 |      545 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      205 |     20800 |            0.99 |
+|   CARRY4       |    <0.001 |       44 |      8150 |            0.54 |
+|   Register     |    <0.001 |      187 |     41600 |            0.45 |
+|   Others       |     0.000 |       24 |       --- |             --- |
+| Signals        |    <0.001 |      412 |       --- |             --- |
 | MMCM           |     0.116 |        1 |         5 |           20.00 |
-| I/O            |    <0.001 |       50 |       106 |           47.17 |
+| I/O            |    <0.001 |       48 |       106 |           45.28 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.190 |          |           |                 |
+| Total          |     0.189 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -146,7 +146,7 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| Top         |     0.118 |
+| Top         |     0.117 |
 |   clk_wiz_0 |     0.116 |
 |     inst    |     0.116 |
 +-------------+-----------+

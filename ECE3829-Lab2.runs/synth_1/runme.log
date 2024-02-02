@@ -10,7 +10,6 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source Top.tcl -notrace
-create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 386.707 ; gain = 63.441
 Command: read_checkpoint -auto_incremental -incremental C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/utils_1/imports/synth_1/Top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/utils_1/imports/synth_1/Top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -23,25 +22,56 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 19820
+INFO: [Synth 8-7075] Helper process launched with PID 3696
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1207.137 ; gain = 409.613
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1207.414 ; gain = 409.551
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Top' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Top.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.runs/synth_1/.Xil/Vivado-16440-SNOW-XPS/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.runs/synth_1/.Xil/Vivado-16440-SNOW-XPS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.runs/synth_1/.Xil/Vivado-19608-SNOW-XPS/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.runs/synth_1/.Xil/Vivado-19608-SNOW-XPS/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'SevenSegmentDisplay' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/SevenSegmentDisplay.sv:3]
 INFO: [Synth 8-226] default block is never used [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/SevenSegmentDisplay.sv:34]
 INFO: [Synth 8-6155] done synthesizing module 'SevenSegmentDisplay' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/SevenSegmentDisplay.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'VGASync' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGASync.sv:3]
-INFO: [Synth 8-6155] done synthesizing module 'VGASync' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGASync.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'VGADriver' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGADriver.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'VGADriver' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGADriver.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'Debouncer' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Debouncer.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'Debouncer' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Debouncer.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'Display' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Display.sv:3]
-INFO: [Synth 8-6155] done synthesizing module 'Display' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Display.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ScreenSaverScreen' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ScreenSaverScreen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'ScreenSaverScreen' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ScreenSaverScreen.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'MovingBlockScreen' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/MovingBlockScreen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'MovingBlockScreen' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/MovingBlockScreen.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ShapesScreen' [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ShapesScreen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'ShapesScreen' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ShapesScreen.sv:3]
 INFO: [Synth 8-6155] done synthesizing module 'Top' (0#1) [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Top.sv:3]
+WARNING: [Synth 8-3848] Net colorIn in module/entity VGADriver does not have driver. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGADriver.sv:6]
 WARNING: [Synth 8-7137] Register out_reg in module Debouncer has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Debouncer.sv:18]
+WARNING: [Synth 8-3848] Net leds in module/entity Top does not have driver. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Top.sv:7]
+WARNING: [Synth 8-7129] Port CLK25 in module ShapesScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset_n in module ShapesScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset_n in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[10] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[9] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[8] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[7] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[6] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[5] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[4] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[3] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[2] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[1] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaX[0] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[10] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[9] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[8] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[7] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[6] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[5] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[4] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[3] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[2] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[1] in module ScreenSaverScreen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vgaY[0] in module ScreenSaverScreen is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[15] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[14] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[13] in module Top is either unconnected or has no load
@@ -55,19 +85,35 @@ WARNING: [Synth 8-7129] Port leds[6] in module Top is either unconnected or has 
 WARNING: [Synth 8-7129] Port leds[5] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[4] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[3] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[2] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[1] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[0] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[14] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[13] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[12] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[11] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[10] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[9] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[8] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[7] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[6] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[5] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[4] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[3] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[2] in module Top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1298.371 ; gain = 500.848
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1298.293 ; gain = 500.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1298.371 ; gain = 500.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1298.293 ; gain = 500.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1298.371 ; gain = 500.848
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1298.293 ; gain = 500.430
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1298.371 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1298.293 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -75,43 +121,32 @@ Initializing timing engine
 Parsing XDC File [c:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_0'
 Finished Parsing XDC File [c:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_0'
 Parsing XDC File [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc]
-WARNING: [Vivado 12-584] No ports matched 'switches[2]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:14]
-WARNING: [Vivado 12-584] No ports matched 'switches[3]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:15]
-WARNING: [Vivado 12-584] No ports matched 'switches[4]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:16]
-WARNING: [Vivado 12-584] No ports matched 'switches[5]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:17]
-WARNING: [Vivado 12-584] No ports matched 'switches[6]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:18]
-WARNING: [Vivado 12-584] No ports matched 'switches[7]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:19]
-WARNING: [Vivado 12-584] No ports matched 'switches[8]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:20]
-WARNING: [Vivado 12-584] No ports matched 'switches[9]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:21]
-WARNING: [Vivado 12-584] No ports matched 'switches[10]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:22]
-WARNING: [Vivado 12-584] No ports matched 'switches[11]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:23]
-WARNING: [Vivado 12-584] No ports matched 'switches[12]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:24]
-WARNING: [Vivado 12-584] No ports matched 'switches[13]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:25]
-WARNING: [Vivado 12-584] No ports matched 'switches[14]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:26]
-WARNING: [Vivado 12-584] No ports matched 'switches[15]'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:27]
+WARNING: [Vivado 12-584] No ports matched 'buttonLeft'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:69]
+WARNING: [Vivado 12-584] No ports matched 'buttonRight'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:70]
+WARNING: [Vivado 12-584] No ports matched 'buttonDown'. [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc:71]
 Finished Parsing XDC File [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/Top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/constrs_1/new/basys.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1367.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1405.598 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1367.031 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1405.598 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -120,41 +155,38 @@ Applied set_property IO_BUFFER_TYPE = NONE for CLK100. (constraint file  c:/User
 Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK100. (constraint file  c:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_wiz_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:21 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   24 Bit       Adders := 1     
-	   2 Input   18 Bit       Adders := 3     
+	   2 Input   18 Bit       Adders := 5     
 	   2 Input   11 Bit       Adders := 3     
 	   2 Input   10 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
-	               24 Bit    Registers := 1     
-	               20 Bit    Registers := 3     
-	               12 Bit    Registers := 1     
+	               20 Bit    Registers := 5     
+	               12 Bit    Registers := 2     
 	               11 Bit    Registers := 2     
 	               10 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 7     
+	                1 Bit    Registers := 11    
 +---Muxes : 
 	   2 Input   24 Bit        Muxes := 1     
-	   2 Input   18 Bit        Muxes := 6     
-	   2 Input   12 Bit        Muxes := 1     
-	   3 Input   12 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 10    
+	   2 Input   12 Bit        Muxes := 3     
 	   5 Input   12 Bit        Muxes := 1     
 	   2 Input   11 Bit        Muxes := 2     
 	   2 Input    8 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 7     
+	   2 Input    1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -185,26 +217,42 @@ WARNING: [Synth 8-7129] Port leds[6] in module Top is either unconnected or has 
 WARNING: [Synth 8-7129] Port leds[5] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[4] in module Top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port leds[3] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[2] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[1] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port leds[0] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[14] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[13] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[12] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[11] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[10] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[9] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[8] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[7] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[6] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[5] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[4] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[3] in module Top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port switches[2] in module Top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:25 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:33 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:33 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -222,37 +270,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -270,43 +318,43 @@ Report Cell Usage:
 |      |Cell    |Count |
 +------+--------+------+
 |1     |clk_wiz |     1|
-|2     |CARRY4  |    32|
+|2     |CARRY4  |    44|
 |3     |LUT1    |     6|
-|4     |LUT2    |    65|
-|5     |LUT3    |    31|
-|6     |LUT4    |    73|
-|7     |LUT5    |    18|
-|8     |LUT6    |    42|
-|9     |FDCE    |   135|
-|10    |FDPE    |     3|
-|11    |FDRE    |     3|
-|12    |LDC     |     3|
-|13    |IBUF    |     7|
-|14    |OBUF    |    29|
-|15    |OBUFT   |    13|
+|4     |LUT2    |    72|
+|5     |LUT3    |    14|
+|6     |LUT4    |   144|
+|7     |LUT5    |    21|
+|8     |LUT6    |    33|
+|9     |FDCE    |   175|
+|10    |FDPE    |     5|
+|11    |FDRE    |     2|
+|12    |LDC     |     5|
+|13    |IBUF    |     5|
+|14    |OBUF    |    26|
+|15    |OBUFT   |    16|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 15 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:36 . Memory (MB): peak = 1367.031 ; gain = 500.848
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:39 . Memory (MB): peak = 1367.031 ; gain = 569.508
+Synthesis finished with 0 errors, 0 critical warnings and 31 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1405.598 ; gain = 500.430
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1405.598 ; gain = 607.734
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1367.031 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1405.598 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 49 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1367.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1405.598 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 3 instances were transformed.
-  LDC => LDCE: 3 instances
+  A total of 5 instances were transformed.
+  LDC => LDCE: 5 instances
 
-Synth Design complete, checksum: d6a36a64
+Synth Design complete, checksum: f237f736
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
+40 Infos, 92 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:46 . Memory (MB): peak = 1367.031 ; gain = 946.523
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1405.598 ; gain = 983.910
 INFO: [Common 17-1381] The checkpoint 'C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.runs/synth_1/Top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_utilization_synth.rpt -pb Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Feb  1 17:03:48 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Feb  1 21:33:39 2024...

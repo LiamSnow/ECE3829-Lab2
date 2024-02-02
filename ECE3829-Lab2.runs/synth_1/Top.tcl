@@ -94,9 +94,11 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Debouncer.sv
-  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Display.sv
+  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/MovingBlockScreen.sv
+  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ScreenSaverScreen.sv
   C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/SevenSegmentDisplay.sv
-  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGASync.sv
+  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/ShapesScreen.sv
+  C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/VGADriver.sv
   C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/new/Top.sv
 }
 read_ip -quiet C:/Users/liams/Documents/GitHub/ECE3829-Lab2/ECE3829-Lab2.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

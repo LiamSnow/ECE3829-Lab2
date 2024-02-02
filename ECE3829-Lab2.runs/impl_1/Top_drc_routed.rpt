@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb  1 17:05:10 2024
+| Date         : Thu Feb  1 21:34:25 2024
 | Host         : SNOW-XPS running 64-bit major release  (build 9200)
 | Command      : report_drc -file Top_drc_routed.rpt -pb Top_drc_routed.pb -rpx Top_drc_routed.rpx
 | Design       : Top
@@ -24,26 +24,36 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 3
+             Violations found: 5
 +----------+----------+-------------------+------------+
 | Rule     | Severity | Description       | Violations |
 +----------+----------+-------------------+------------+
-| PDRC-153 | Warning  | Gated clock check | 3          |
+| PDRC-153 | Warning  | Gated clock check | 5          |
 +----------+----------+-------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 PDRC-153#1 Warning
 Gated clock check  
-Net ButtonDebouncer/out_reg_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin ButtonDebouncer/out_reg_LDC_i_1/O, cell ButtonDebouncer/out_reg_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net Button1Debouncer/out_reg_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin Button1Debouncer/out_reg_LDC_i_1/O, cell Button1Debouncer/out_reg_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net Switch1Debouncer/out_reg_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin Switch1Debouncer/out_reg_LDC_i_1__0/O, cell Switch1Debouncer/out_reg_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net Button2Debouncer/out_reg_LDC_i_1__3_n_0 is a gated clock net sourced by a combinational pin Button2Debouncer/out_reg_LDC_i_1__3/O, cell Button2Debouncer/out_reg_LDC_i_1__3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
+Gated clock check  
+Net Switch15Debouncer/out_reg_LDC_i_1__2_n_0 is a gated clock net sourced by a combinational pin Switch15Debouncer/out_reg_LDC_i_1__2/O, cell Switch15Debouncer/out_reg_LDC_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net Switch1Debouncer/out_reg_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin Switch1Debouncer/out_reg_LDC_i_1__0/O, cell Switch1Debouncer/out_reg_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
 Gated clock check  
 Net Switch2Debouncer/out_reg_LDC_i_1__1_n_0 is a gated clock net sourced by a combinational pin Switch2Debouncer/out_reg_LDC_i_1__1/O, cell Switch2Debouncer/out_reg_LDC_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
