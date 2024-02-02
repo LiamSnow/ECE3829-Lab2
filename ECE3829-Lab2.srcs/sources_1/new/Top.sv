@@ -63,5 +63,5 @@ module Top(
 
     ScreenSaverScreen ScreenSaverScreen(CLK25, reset_n, vgaColorScreens[2'd0], vgaX, vgaY);
     MovingBlockScreen MovingBlockScreen(CLK25, reset_n, movingBlockScreenBoost, vgaColorScreens[2'd1], vgaX, vgaY);
-    ShapesScreen ShapesScreen(CLK25, reset_n, shapesScreenState, vgaColorScreens[2'd2], vgaX, vgaY);
+    ShapesScreen ShapesScreen(shapesScreenState, vgaColorScreens[2'd2], vgaX, vgaY);
 endmodule

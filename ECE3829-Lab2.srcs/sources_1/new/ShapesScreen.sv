@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
 module ShapesScreen(
-    input wire CLK25, reset_n,
     input wire [1:0] state,
     output reg [11:0] vgaColor,
     input wire [10:0] vgaX, vgaY
@@ -27,7 +26,6 @@ module ShapesScreen(
     localparam [11:0] YELLOW = {4'hF, 4'hF, 4'h0};
 
     //VGA Color Logic
-    // always_ff @(posedge CLK25) begin
     always_comb begin
         case (state)
             YELLOW_SCREEN: vgaColor <= YELLOW;
