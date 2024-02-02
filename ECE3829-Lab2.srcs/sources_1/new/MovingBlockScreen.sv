@@ -19,18 +19,18 @@ module MovingBlockScreen(
     //Block
     localparam [5:0] BLOCK_SIZE = 32;
     localparam [4:0] BLOCK_HALF_SIZE = BLOCK_SIZE >> 1;
-    localparam [9:0] BLOCK_LEFT_X = VGA_MIDDLE - BLOCK_HALF_SIZE - 1;
-    localparam [9:0] BLOCK_RIGHT_X = VGA_MIDDLE + BLOCK_HALF_SIZE + 1;
-    localparam [9:0] BLOCK_BOTTOM_Y = VGA_HEIGHT - BLOCK_SIZE - 1;
-    reg [9:0] blockY = 0;
-    reg blockMovingDown = 0;
+    localparam [10:0] BLOCK_LEFT_X = VGA_MIDDLE - BLOCK_HALF_SIZE - 1;
+    localparam [10:0] BLOCK_RIGHT_X = VGA_MIDDLE + BLOCK_HALF_SIZE + 1;
+    localparam [10:0] BLOCK_BOTTOM_Y = VGA_HEIGHT - BLOCK_SIZE - 1;
+    reg [10:0] blockY = 0;
+    reg blockMovingDown = 1;
 
     localparam [23:0] BLOCK_SLOW_CLOCK_END = 12_500_000-1; //25MHz -> 2Hz
     localparam [23:0] BLOCK_FAST_CLOCK_END = 1_562_500-1; //25MHz -> 16Hz
     reg [23:0] blockClockCounter = 0;
 
     //VGA Color Logic
-    always_ff @(posedge CLK25) begin
+    always_comb begin //TODO check
         if (vgaX > BLOCK_LEFT_X &&
             vgaX < BLOCK_RIGHT_X &&
             vgaY >= blockY &&
@@ -44,7 +44,7 @@ module MovingBlockScreen(
     always_ff @(posedge CLK25 or negedge reset_n) begin
         if (~reset_n) begin
              blockY <= 0;
-             blockMovingDown <= 0;
+             blockMovingDown <= 1;
              blockClockCounter <= 0;
         end
         else begin
@@ -62,7 +62,8 @@ module MovingBlockScreen(
                 else begin
                     blockMovingDown <= ~blockMovingDown;
                 end
-            end else blockClockCounter <= blockClockCounter + 1;
+            end
+            else blockClockCounter <= blockClockCounter + 1;
         end
     end
 endmodule
