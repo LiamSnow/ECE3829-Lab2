@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Thu Feb  1 21:34:26 2024
+| Date             : Tue Feb  6 16:32:22 2024
 | Host             : SNOW-XPS running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_power_routed.rpt -pb Top_power_summary_routed.pb -rpx Top_power_routed.rpx
 | Design           : Top
@@ -53,14 +53,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      545 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      205 |     20800 |            0.99 |
-|   CARRY4       |    <0.001 |       44 |      8150 |            0.54 |
-|   Register     |    <0.001 |      187 |     41600 |            0.45 |
-|   Others       |     0.000 |       24 |       --- |             --- |
-| Signals        |    <0.001 |      412 |       --- |             --- |
+| Slice Logic    |    <0.001 |      651 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      258 |     20800 |            1.24 |
+|   CARRY4       |    <0.001 |       52 |      8150 |            0.64 |
+|   Register     |    <0.001 |      199 |     41600 |            0.48 |
+|   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others       |     0.000 |       23 |       --- |             --- |
+| Signals        |    <0.001 |      486 |       --- |             --- |
 | MMCM           |     0.116 |        1 |         5 |           20.00 |
-| I/O            |    <0.001 |       48 |       106 |           45.28 |
+| I/O            |    <0.001 |       47 |       106 |           44.34 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.189 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+

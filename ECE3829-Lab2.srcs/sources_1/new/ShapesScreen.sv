@@ -18,12 +18,12 @@ module ShapesScreen(
     localparam [1:0] BLUE_STRIPE = 2'b11; //black screen w/ hori blue stripe (32 high) at bottom
 
     //Colors
-    localparam [11:0] WHITE  = {4'hF, 4'hF, 4'hF};
-    localparam [11:0] BLACK  = {4'h0, 4'h0, 4'h0};
-    localparam [11:0] RED    = {4'hF, 4'h0, 4'h0};
-    localparam [11:0] GREEN  = {4'h0, 4'hF, 4'h0};
-    localparam [11:0] BLUE   = {4'h0, 4'h0, 4'hF};
-    localparam [11:0] YELLOW = {4'hF, 4'hF, 4'h0};
+    localparam [11:0] WHITE  = 12'hFFF;
+    localparam [11:0] BLACK  = 12'h000;
+    localparam [11:0] RED    = 12'hF00;
+    localparam [11:0] GREEN  = 12'h0F0;
+    localparam [11:0] BLUE   = 12'h00F;
+    localparam [11:0] YELLOW = 12'hFF0;
 
     //VGA Color Logic
     always_comb begin

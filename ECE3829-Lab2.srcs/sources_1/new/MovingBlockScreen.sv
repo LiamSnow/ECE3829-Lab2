@@ -2,7 +2,6 @@
 
 module MovingBlockScreen(
     input wire CLK25, reset_n,
-    input wire blockBoost,
     output reg [11:0] vgaColor,
     input wire [10:0] vgaX, vgaY
     );
@@ -10,31 +9,30 @@ module MovingBlockScreen(
     //VGA Params
     localparam [9:0] VGA_WIDTH = 640;
     localparam [9:0] VGA_HEIGHT = 480;
-    localparam [9:0] VGA_MIDDLE = VGA_WIDTH >> 1;
+    localparam [9:0] VGA_MIDDLE_X = VGA_WIDTH >> 1;
+    localparam [9:0] VGA_MIDDLE_Y = VGA_HEIGHT >> 1;
 
     //Colors
-    localparam [11:0] RED    = {4'hF, 4'h0, 4'h0};
-    localparam [11:0] BLUE   = {4'h0, 4'h0, 4'hF};
+    localparam [11:0] RED    = 12'hF00;
+    localparam [11:0] BLUE   = 12'h00F;
 
     //Block
     localparam [5:0] BLOCK_SIZE = 32;
     localparam [4:0] BLOCK_HALF_SIZE = BLOCK_SIZE >> 1;
-    localparam [10:0] BLOCK_LEFT_X = VGA_MIDDLE - BLOCK_HALF_SIZE - 1;
-    localparam [10:0] BLOCK_RIGHT_X = VGA_MIDDLE + BLOCK_HALF_SIZE + 1;
-    localparam [10:0] BLOCK_BOTTOM_Y = VGA_HEIGHT - BLOCK_SIZE - 1;
-    reg [10:0] blockY = 0;
-    reg blockMovingDown = 1;
+    localparam [10:0] BLOCK_LEFT_X = VGA_MIDDLE_X - BLOCK_HALF_SIZE - 1;
+    localparam [10:0] BLOCK_RIGHT_X = VGA_MIDDLE_X + BLOCK_HALF_SIZE + 1;
+    reg [10:0] blockY = VGA_MIDDLE_Y; //center coord
+    reg blockMovingUp = 0;
 
-    localparam [23:0] BLOCK_SLOW_CLOCK_END = 12_500_000-1; //25MHz -> 2Hz
-    localparam [23:0] BLOCK_FAST_CLOCK_END = 1_562_500-1; //25MHz -> 16Hz
+    localparam [23:0] BLOCK_CLOCK_END = 12_500_000-1; //25MHz -> 2Hz
     reg [23:0] blockClockCounter = 0;
 
     //VGA Color Logic
-    always_comb begin //TODO check
+    always_comb begin
         if (vgaX > BLOCK_LEFT_X &&
             vgaX < BLOCK_RIGHT_X &&
-            vgaY >= blockY &&
-            vgaY <= blockY + BLOCK_SIZE) begin
+            vgaY >= (blockY - BLOCK_HALF_SIZE) &&
+            vgaY <= (blockY + BLOCK_HALF_SIZE)) begin
             vgaColor <= RED;
         end
         else vgaColor <= BLUE;
@@ -43,24 +41,32 @@ module MovingBlockScreen(
     //Block Logic
     always_ff @(posedge CLK25 or negedge reset_n) begin
         if (~reset_n) begin
-             blockY <= 0;
-             blockMovingDown <= 1;
+             blockY <= VGA_MIDDLE_Y;
+             blockMovingUp <= 0;
              blockClockCounter <= 0;
         end
         else begin
-            if (blockClockCounter == (blockBoost ? BLOCK_FAST_CLOCK_END : BLOCK_SLOW_CLOCK_END)) begin
+            if (blockClockCounter == BLOCK_CLOCK_END) begin
                 blockClockCounter <= 0;
 
-                //Move block in its direction
-                if (blockMovingDown ?
-                    (blockY < BLOCK_BOTTOM_Y) :
-                    (blockY > 1)) begin
-                    blockY <= blockMovingDown ? (blockY + 1) : (blockY - 1);
+                // Moving Up
+                if (blockMovingUp) begin
+                    if (blockY > (BLOCK_HALF_SIZE)) begin
+                        blockY <= blockY - BLOCK_SIZE;
+                    end else begin
+                        blockMovingUp <= 0;
+                        blockY <= blockY + BLOCK_SIZE;
+                    end
                 end
-
-                //Swap block direction
+                
+                // Moving Down
                 else begin
-                    blockMovingDown <= ~blockMovingDown;
+                    if (blockY < (VGA_HEIGHT - BLOCK_HALF_SIZE)) begin
+                        blockY <= blockY + BLOCK_SIZE;
+                    end else begin
+                        blockMovingUp <= 1;
+                        blockY <= blockY - BLOCK_SIZE;
+                    end
                 end
             end
             else blockClockCounter <= blockClockCounter + 1;

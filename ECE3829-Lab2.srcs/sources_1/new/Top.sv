@@ -48,10 +48,9 @@ module Top(
     );
 
     //Inputs
-    wire screenSaverScreenSelected, movingBlockScreenSelected, movingBlockScreenBoost;
+    wire screenSaverScreenSelected, movingBlockScreenSelected;
     wire [1:0] shapesScreenState;
     Debouncer Button1Debouncer(CLK25, reset_n, buttonCenter, movingBlockScreenSelected);
-    Debouncer Button2Debouncer(CLK25, reset_n, buttonUp, movingBlockScreenBoost);
     Debouncer Switch1Debouncer(CLK25, reset_n, switches[0], shapesScreenState[0]);
     Debouncer Switch2Debouncer(CLK25, reset_n, switches[1], shapesScreenState[1]);
     Debouncer Switch15Debouncer(CLK25, reset_n, switches[15], screenSaverScreenSelected);
@@ -62,6 +61,6 @@ module Top(
         movingBlockScreenSelected ? vgaColorScreens[2'd1] : vgaColorScreens[2'd2];
 
     ScreenSaverScreen ScreenSaverScreen(CLK25, reset_n, vgaColorScreens[2'd0], vgaX, vgaY);
-    MovingBlockScreen MovingBlockScreen(CLK25, reset_n, movingBlockScreenBoost, vgaColorScreens[2'd1], vgaX, vgaY);
+    MovingBlockScreen MovingBlockScreen(CLK25, reset_n, vgaColorScreens[2'd1], vgaX, vgaY);
     ShapesScreen ShapesScreen(shapesScreenState, vgaColorScreens[2'd2], vgaX, vgaY);
 endmodule

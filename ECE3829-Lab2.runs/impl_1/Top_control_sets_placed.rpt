@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb  1 21:34:09 2024
+| Date         : Tue Feb  6 16:32:03 2024
 | Host         : SNOW-XPS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
 | Design       : Top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    24 |
-|    Minimum number of control sets                        |    24 |
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   157 |
+| Unused register locations in slices containing registers |   137 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,12 +39,12 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    24 |
-| >= 0 to < 4        |    21 |
-| >= 4 to < 6        |     0 |
+| Total control sets |    22 |
+| >= 0 to < 4        |    17 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     2 |
+| >= 10 to < 12      |     3 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     1 |
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               2 |            1 |
-| No           | No                    | Yes                    |             154 |           47 |
-| No           | Yes                   | No                     |               5 |            5 |
+| No           | No                    | Yes                    |             152 |           46 |
+| No           | Yes                   | No                     |               4 |            4 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              26 |           14 |
+| Yes          | No                    | Yes                    |              41 |           17 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,30 +73,28 @@ Table of Contents
 +-------------------------------------------+------------------------------------+------------------------------------------+------------------+----------------+--------------+
 |                Clock Signal               |            Enable Signal           |             Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
 +-------------------------------------------+------------------------------------+------------------------------------------+------------------+----------------+--------------+
-|  clk_wiz_0/inst/clk_out1                  |                                    | Button1Debouncer/out_reg_LDC_i_1_n_0     |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Button1Debouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Button2Debouncer/out_reg_LDC_i_1__3_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Button2Debouncer/out_reg_LDC_i_2__3_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch15Debouncer/out_reg_LDC_i_1__2_n_0 |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch15Debouncer/out_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch1Debouncer/out_reg_LDC_i_1__0_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch1Debouncer/out_reg_LDC_i_2__0_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch2Debouncer/out_reg_LDC_i_2__1_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | Switch2Debouncer/out_reg_LDC_i_1__1_n_0  |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  | Button1Debouncer/state_i_1_n_0     | MovingBlockScreen/bbstub_locked          |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  | Button2Debouncer/state_i_1__0_n_0  | MovingBlockScreen/bbstub_locked          |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  | Switch15Debouncer/state_i_1__3_n_0 | MovingBlockScreen/bbstub_locked          |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  | Switch1Debouncer/state_i_1__1_n_0  | MovingBlockScreen/bbstub_locked          |                1 |              1 |         1.00 |
-|  clk_wiz_0/inst/clk_out1                  | Switch2Debouncer/state_i_1__2_n_0  | MovingBlockScreen/bbstub_locked          |                1 |              1 |         1.00 |
 |  Button1Debouncer/out_reg_LDC_i_1_n_0     |                                    | Button1Debouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
-|  Button2Debouncer/out_reg_LDC_i_1__3_n_0  |                                    | Button2Debouncer/out_reg_LDC_i_2__3_n_0  |                1 |              1 |         1.00 |
 |  Switch15Debouncer/out_reg_LDC_i_1__2_n_0 |                                    | Switch15Debouncer/out_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
 |  Switch1Debouncer/out_reg_LDC_i_1__0_n_0  |                                    | Switch1Debouncer/out_reg_LDC_i_2__0_n_0  |                1 |              1 |         1.00 |
 |  Switch2Debouncer/out_reg_LDC_i_1__1_n_0  |                                    | Switch2Debouncer/out_reg_LDC_i_2__1_n_0  |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Button1Debouncer/out_reg_LDC_i_2_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Button1Debouncer/out_reg_LDC_i_1_n_0     |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch15Debouncer/out_reg_LDC_i_1__2_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch15Debouncer/out_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch1Debouncer/out_reg_LDC_i_2__0_n_0  |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch1Debouncer/out_reg_LDC_i_1__0_n_0  |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch2Debouncer/out_reg_LDC_i_1__1_n_0  |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | Switch2Debouncer/out_reg_LDC_i_2__1_n_0  |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  | Button1Debouncer/state_i_1_n_0     | ScreenSaverScreen/bbstub_locked          |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  | Switch15Debouncer/state_i_1__2_n_0 | ScreenSaverScreen/bbstub_locked          |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  | Switch1Debouncer/state_i_1__0_n_0  | ScreenSaverScreen/bbstub_locked          |                1 |              1 |         1.00 |
+|  clk_wiz_0/inst/clk_out1                  | Switch2Debouncer/state_i_1__1_n_0  | ScreenSaverScreen/bbstub_locked          |                1 |              1 |         1.00 |
 |  clk_wiz_0/inst/clk_out1                  |                                    |                                          |                1 |              2 |         2.00 |
-|  clk_wiz_0/inst/clk_out1                  | MovingBlockScreen/blockY           | MovingBlockScreen/bbstub_locked          |                4 |             10 |         2.50 |
-|  clk_wiz_0/inst/clk_out1                  | VGADriver/y                        | MovingBlockScreen/bbstub_locked          |                5 |             11 |         2.20 |
-|  clk_wiz_0/inst/clk_out1                  |                                    | MovingBlockScreen/bbstub_locked          |               37 |            144 |         3.89 |
+|  clk_wiz_0/inst/clk_out1                  | MovingBlockScreen/blockY           | ScreenSaverScreen/bbstub_locked          |                1 |              4 |         4.00 |
+|  clk_wiz_0/inst/clk_out1                  | ScreenSaverScreen/coordX           | ScreenSaverScreen/bbstub_locked          |                4 |             11 |         2.75 |
+|  clk_wiz_0/inst/clk_out1                  | ScreenSaverScreen/coordY           | ScreenSaverScreen/bbstub_locked          |                4 |             11 |         2.75 |
+|  clk_wiz_0/inst/clk_out1                  | VGADriver/y                        | ScreenSaverScreen/bbstub_locked          |                4 |             11 |         2.75 |
+|  clk_wiz_0/inst/clk_out1                  |                                    | ScreenSaverScreen/bbstub_locked          |               38 |            144 |         3.79 |
 +-------------------------------------------+------------------------------------+------------------------------------------+------------------+----------------+--------------+
 
 
